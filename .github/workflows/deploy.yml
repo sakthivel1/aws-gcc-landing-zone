@@ -169,7 +169,7 @@ jobs:
 
       - name: Build and push Docker image
         run: |
-          IMAGE=${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
+          IMAGE=${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}-${{ github.run_number }}
           IMAGE_LATEST=${{ secrets.ECR_REPOSITORY }}:latest
           docker build -t $IMAGE .
           docker push $IMAGE  
