@@ -171,9 +171,8 @@ jobs:
         run: |
           IMAGE=${{ secrets.ECR_REPOSITORY }}:${{ github.sha }}
           IMAGE_LATEST=${{ secrets.ECR_REPOSITORY }}:latest
-          docker build -t $IMAGE -t $IMAGE_LATEST .
-          docker push $IMAGE
-          docker push $IMAGE_LATEST
+          docker build -t $IMAGE .
+          docker push $IMAGE  
           echo "IMAGE_URI=$IMAGE" >> $GITHUB_OUTPUT
         id: build
 
